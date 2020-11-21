@@ -1,0 +1,31 @@
+.main-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #E67E25;
+  color: #ffffff;
+  font-weight: 600;
+
+  .links {
+    margin: 0 16px;
+
+    a {
+      color: #ffffff;
+      font-weight: 300;
+      margin: 0 12px;
+      text-decoration: none;
+
+      &:hover {
+        color:#34495E;
+      }
+    }
+  }
+}
+
+.spacer {
+  flex: 1;
+}
