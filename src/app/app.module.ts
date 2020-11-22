@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import { SharedModule } from './shared/shared.module';
@@ -21,7 +21,9 @@ import { AppRoutingModule } from './app.routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
+    FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule,
     SharedModule,
     TranslateModule.forRoot()

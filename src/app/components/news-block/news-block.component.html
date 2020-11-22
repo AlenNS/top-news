@@ -1,6 +1,7 @@
 <h5 class="text-uppercase">
   {{ article?.title }}
 </h5>
+<p class="news-source">Source: {{ article?.source?.name }}</p>
 <hr>
 <img [src]="article?.urlToImage" class="w-100" />
 <hr>

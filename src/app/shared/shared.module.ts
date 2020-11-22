@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 // Angular material dependencies
@@ -30,15 +31,18 @@ import { TopNewsService } from './services/top-news.service';
   ],
   imports: [
     CommonModule,
-    TranslateModule,
+    FormsModule,
     NgMaterialDependenciesModule,
+    ReactiveFormsModule,
     RouterModule,
     TranslateModule
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
-    NewsBlockComponent
+    NewsBlockComponent,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     TopNewsService

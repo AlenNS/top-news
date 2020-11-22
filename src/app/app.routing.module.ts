@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CategoryListComponent } from './views/category-list/category-list.component';
 import { NewsBlockComponent } from './components/news-block/news-block.component';
+import { SearchListComponent } from './views/search-list/search-list.component';
 import { TopNewsComponent } from './views/top-news/top-news.component';
 
 const routes: Routes = [{
@@ -20,7 +21,7 @@ const routes: Routes = [{
   component: TopNewsComponent
 }, {
   path: 'search',
-  component: TopNewsComponent
+  component: SearchListComponent
 }];
 
 @NgModule({

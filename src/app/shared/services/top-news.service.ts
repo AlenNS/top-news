@@ -38,4 +38,12 @@ export class TopNewsService {
         .get<Response>(FULL_URL, { headers })
         .pipe(catchError(err => throwError(err)));
     }
+
+    getNewsByTerm(country: string, searchTerm: string): Observable<Response> {
+      const FULL_URL = BASE_URL + 'apiKey=' + API_KEY + '&country=' + country + '&q=' + searchTerm.toString();
+
+      return this.http
+        .get<Response>(FULL_URL, { headers })
+        .pipe(catchError(err => throwError(err)));
+    }
 }
