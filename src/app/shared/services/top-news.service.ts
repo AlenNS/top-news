@@ -18,11 +18,23 @@ export class TopNewsService {
         private http: HttpClient
     ) { }
 
-    getAllNews(country: string): Observable<Response> {
+    getNewsByCountry(country: string): Observable<Response> {
         const FULL_URL = BASE_URL + 'apiKey=' + API_KEY + '&country=' + country;
 
         return this.http
           .get<Response>(FULL_URL, { headers })
           .pipe(catchError(err => throwError(err)));
-        }
+    }
+
+    getNewsByCategory(country: string, category: string, pageSize?: number): Observable<Response> {
+      let FULL_URL = BASE_URL + 'apiKey=' + API_KEY + '&country=' + country + '&category=' + category;
+
+      if (pageSize) {
+        FULL_URL += '&pageSize=' + pageSize;
+      }
+
+      return this.http
+        .get<Response>(FULL_URL, { headers })
+        .pipe(catchError(err => throwError(err)));
+    }
 }
