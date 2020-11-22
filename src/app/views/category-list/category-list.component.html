@@ -1,7 +1,7 @@
 <div class="container main">
   <div class="row">
     <div class="col">
-      <h2 class="main-title">{{ categoryMainTitle }} {{ selectedCountry }}</h2>
+      <h2 class="main-title">{{ title }}</h2>
       <hr>
     </div>
   </div>
@@ -9,12 +9,12 @@
     <div class="col">
       <mat-accordion>
         <mat-expansion-panel *ngFor="let category of categories"
-            (opened)="getArticles(category)"
+            (opened)="getArticles(category.key)"
             (closed)="panelOpenState = false"
             class="mb-3">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <strong>Category: </strong> <a [routerLink]="['/category', category]" class="ml-1"> {{ category | titlecase }} </a>
+              <strong>Category: </strong> <a [routerLink]="['/category', category.key]" class="ml-1"> {{ category?.value }} </a>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="row">

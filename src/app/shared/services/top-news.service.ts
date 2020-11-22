@@ -8,7 +8,8 @@ import { Response } from './../data-types/response';
 
 // API endpoint URL and api key values
 const BASE_URL = 'https://newsapi.org/v2/top-headlines?';
-const API_KEY = '85c2278d358f439e899cd26d34b7b871';
+// const API_KEY = '85c2278d358f439e899cd26d34b7b871';
+const API_KEY = '64b10bfb4a8d4230b644895c0700b8d2'; // new API when first one limit is reached
 
 const headers = new HttpHeaders({'Content-Type': 'application/json'});
 

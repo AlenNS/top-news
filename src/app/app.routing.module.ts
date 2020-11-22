@@ -18,6 +18,9 @@ const routes: Routes = [{
 }, {
   path: 'category/:category',
   component: TopNewsComponent
+}, {
+  path: 'search',
+  component: TopNewsComponent
 }];
 
 @NgModule({
