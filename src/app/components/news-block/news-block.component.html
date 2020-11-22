@@ -1,10 +1,12 @@
 <h5 class="text-uppercase">
-  {{ article.title }}
+  {{ article?.title }}
 </h5>
 <hr>
-<img [src]="article.urlToImage" class="w-100" />
+<img [src]="article?.urlToImage" class="w-100" />
 <hr>
-<p>{{ article.description }}</p>
-<a href="#" target="_blank" class="btn link-read-more w-100">
+<p>{{ article?.description }}</p>
+<a [routerLink]="['/news', formatLink(article?.title)]"
+   target="_blank"
+   class="btn link-read-more w-100">
   {{ readMore }}
 </a>

@@ -16,6 +16,9 @@ import { FooterComponent } from './../components/footer/footer.component';
 import { NavbarComponent } from './../components/navbar/navbar.component';
 import { NewsBlockComponent } from './../components/news-block/news-block.component';
 
+// Services
+import { TopNewsService } from './services/top-news.service';
+
 @NgModule({
   declarations: [
     CategoryListComponent,
@@ -37,7 +40,9 @@ import { NewsBlockComponent } from './../components/news-block/news-block.compon
     NavbarComponent,
     NewsBlockComponent
   ],
-  providers: []
+  providers: [
+    TopNewsService
+  ]
 })
 
 export class SharedModule {

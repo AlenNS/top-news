@@ -12,7 +12,11 @@ export class NewsBlockComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  formatLink(title: string): string {
+    const link = title.replace(/[^A-Z0-9]+/ig, '-').toLowerCase();
+    return link;
   }
 
 }

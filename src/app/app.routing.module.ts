@@ -1,19 +1,16 @@
-import {
-  NgModule
-} from '@angular/core';
-import {
-  Routes,
-  RouterModule
-} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import {
-  TopNewsComponent
-} from './views/top-news/top-news.component';
+import { NewsBlockComponent } from './components/news-block/news-block.component';
+import { TopNewsComponent } from './views/top-news/top-news.component';
 
 const routes: Routes = [{
   path: '',
   pathMatch: 'full',
   component: TopNewsComponent
+}, {
+  path: 'news/:title',
+  component: NewsBlockComponent
 }];
 
 @NgModule({
