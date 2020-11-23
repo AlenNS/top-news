@@ -16,6 +16,7 @@ import { CategoryListComponent } from './../views/category-list/category-list.co
 import { FooterComponent } from './../components/footer/footer.component';
 import { NavbarComponent } from './../components/navbar/navbar.component';
 import { NewsBlockComponent } from './../components/news-block/news-block.component';
+import { NewsBlockModalComponent } from './../components/news-block/news-block-modal/news-block-modal.component';
 
 // Services
 import { TopNewsService } from './services/top-news.service';
@@ -27,7 +28,8 @@ import { TopNewsService } from './services/top-news.service';
     TopNewsComponent,
     FooterComponent,
     NavbarComponent,
-    NewsBlockComponent
+    NewsBlockComponent,
+    NewsBlockModalComponent
   ],
   imports: [
     CommonModule,
@@ -41,6 +43,7 @@ import { TopNewsService } from './services/top-news.service';
     FooterComponent,
     NavbarComponent,
     NewsBlockComponent,
+    NewsBlockModalComponent,
     ReactiveFormsModule,
     FormsModule
   ],

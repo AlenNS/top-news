@@ -1,0 +1,12 @@
+<div class="container">
+  <h5 class="text-uppercase">
+    {{ title }}
+  </h5>
+  <hr>
+  <img [src]="urlToImage" class="w-100" />
+  <hr>
+  <p class="news-source">Source: {{ source }}</p>
+  <hr>
+  <p>{{ content }}</p>
+  <button type="button" class="btn btn-secondary button-back" [mat-dialog-close]="true">< Back to the list</button>
+</div>

@@ -7,9 +7,15 @@
 <hr>
 <p class="news-source">Source: {{ article?.source?.name }}</p>
 <hr>
-<p class="news-truncate-description">{{ article?.description }}</p>
-<a [routerLink]="['/news', formatLink(article?.title)]"
+<p class="news-truncate-description">{{ content }}</p>
+<a (click)="openDialog()"
    target="_blank"
    class="btn link-read-more mb-3 w-100">
   {{ readMore }}
 </a>
+<!-- TODO: After providing single news endpoint implement routing -->
+<!-- <a [routerLink]="['/news', formatLink(article?.title)]"
+   target="_blank"
+   class="btn link-read-more mb-3 w-100">
+  {{ readMore }}
+</a> -->
