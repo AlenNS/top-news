@@ -1,5 +1,6 @@
-<h5 class="text-uppercase news-truncate-title"
-    [matTooltip]="article?.title">
+<h5 class="text-uppercase news-truncate-title cursor-pointer"
+    [matTooltip]="article?.title"
+    (click)="openDialog()">
   {{ article?.title }}
 </h5>
 <hr>
@@ -7,7 +8,7 @@
 <hr>
 <p class="news-source">Source: {{ article?.source?.name }}</p>
 <hr>
-<p class="news-truncate-description">{{ content }}</p>
+<p class="news-truncate-description">{{ article?.description }}</p>
 <a (click)="openDialog()"
    target="_blank"
    class="btn link-read-more mb-3 w-100">

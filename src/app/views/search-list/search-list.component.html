@@ -17,7 +17,8 @@
     </div>
   </div>
   <div class="row mt-4 w-100" *ngIf="articles.length">
-    <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let article of articles">
+    <div class="col-sm-12 col-md-6 col-lg-4 px-3 pt-3 pb-2 mb-4 main-content"
+         *ngFor="let article of articles">
       <app-news-block [article]="article"></app-news-block>
     </div>
   </div>

@@ -14,14 +14,11 @@ import { NewsBlockModalComponent } from './news-block-modal/news-block-modal.com
 export class NewsBlockComponent implements OnInit {
   @Input() article: Article;
 
-  content: string;
   readMore = 'More details';
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    // If the content is empty show the description
-    this.content = this.article.content || this.article.description;
   }
 
   formatLink(title: string): string {
@@ -38,7 +35,7 @@ export class NewsBlockComponent implements OnInit {
     newsDialog.componentInstance.title = this.article.title;
     newsDialog.componentInstance.urlToImage = this.article.urlToImage;
     newsDialog.componentInstance.source = this.article.source.name;
-    newsDialog.componentInstance.content = this.content;
+    newsDialog.componentInstance.content = this.article.content;
   }
 
 }

@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsBlockModalComponent implements OnInit {
   content: string;
-  description: string;
   source: string;
   title: string;
   urlToImage: string;
