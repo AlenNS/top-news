@@ -14,7 +14,9 @@
   <img [src]="article?.urlToImage" class="news-img" />
 </div>
 <div>
-  <p class="news-truncate-description">{{ article?.description }}</p>
+  <p class="news-truncate-description">
+    {{ article?.description | noData: noDataPlaceholder }}
+  </p>
 </div>
 <div>
   <a (click)="openDialog()" target="_blank" class="btn link-read-more mb-3 w-100">

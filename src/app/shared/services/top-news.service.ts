@@ -10,7 +10,8 @@ import { Response } from './../data-types/response';
 const BASE_URL = 'https://newsapi.org/v2/top-headlines?';
 // const API_KEY = '85c2278d358f439e899cd26d34b7b871';
 // const API_KEY = '64b10bfb4a8d4230b644895c0700b8d2'; // new API when first one limit is reached
-const API_KEY = '0ca816426404456bbe37a705f6590e70'; // new API when first one limit is reached
+// const API_KEY = '0ca816426404456bbe37a705f6590e70'; // new API when first one limit is reached
+const API_KEY = '2afcebc275a34077af2c446c8b326767'; // new API when first one limit is reached
 
 const headers = new HttpHeaders({'Content-Type': 'application/json'});
 

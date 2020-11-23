@@ -14,6 +14,7 @@ import { NewsBlockModalComponent } from './news-block-modal/news-block-modal.com
 export class NewsBlockComponent implements OnInit {
   @Input() article: Article;
 
+  noDataPlaceholder = 'No content retrieved from server';
   readMore = 'More details';
 
   constructor(public dialog: MatDialog) { }

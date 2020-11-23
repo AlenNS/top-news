@@ -19,19 +19,26 @@ import { NavbarComponent } from './../components/navbar/navbar.component';
 import { NewsBlockComponent } from './../components/news-block/news-block.component';
 import { NewsBlockModalComponent } from './../components/news-block/news-block-modal/news-block-modal.component';
 
+// Pipes
+import { NoDataPipe } from './pipes/no-data.pipe';
+
 // Services
 import { TopNewsService } from './services/top-news.service';
 
 @NgModule({
   declarations: [
+    // View components
     CategoryListComponent,
+    SearchListComponent,
+    TopNewsComponent,
+    // Shared components
     FooterComponent,
     LoadingSpinnerComponent,
     NavbarComponent,
     NewsBlockComponent,
     NewsBlockModalComponent,
-    SearchListComponent,
-    TopNewsComponent
+    // Pipes
+    NoDataPipe
   ],
   imports: [
     CommonModule,
@@ -42,15 +49,21 @@ import { TopNewsService } from './services/top-news.service';
     TranslateModule
   ],
   exports: [
+    ReactiveFormsModule,
+    FormsModule,
+    // Pipes
+    NoDataPipe,
+    // Shared components
     FooterComponent,
+    LoadingSpinnerComponent,
     NavbarComponent,
     NewsBlockComponent,
     NewsBlockModalComponent,
-    LoadingSpinnerComponent,
-    ReactiveFormsModule,
-    FormsModule
   ],
   providers: [
+    // Pipes
+    NoDataPipe,
+    // Services
     TopNewsService
   ]
 })

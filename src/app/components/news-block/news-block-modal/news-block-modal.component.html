@@ -15,7 +15,7 @@
     <img [src]="urlToImage" class="w-100" />
   </div>
   <div>
-    <p>{{ content }}</p>
+    <p>{{ content | noData: noDataPlaceholder }}</p>
   </div>
   <div>
     <button type="button" class="btn btn-secondary button-back" [mat-dialog-close]="true">

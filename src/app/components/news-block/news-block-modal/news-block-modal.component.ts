@@ -11,6 +11,8 @@ export class NewsBlockModalComponent implements OnInit {
   title: string;
   urlToImage: string;
 
+  noDataPlaceholder = 'No content retrieved from server';
+
   constructor() { }
 
   ngOnInit(): void {
