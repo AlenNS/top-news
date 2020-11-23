@@ -15,6 +15,34 @@
     height: 48px;
     margin: 0 auto;
     padding: 10px;
-    width: 50%;
+    width: 67%;
+  }
+
+  &-button {
+    height: 48px;
+    width: 67%;
+  }
+}
+
+.no-data-wrapper {
+  text-align: center;
+
+  mat-icon {
+    display: inline-table;
+    font-size: 10rem;
+    margin-top: 2rem;
+  }
+
+  span {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    &-input,
+    &-button {
+      width: 100%;
+    }
   }
 }

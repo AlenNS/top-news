@@ -5,9 +5,49 @@
   text-transform: uppercase;
 }
 
-.news-source {
-  margin: 0;
-  padding: 0;
-  font-size: 12px;
-  font-weight: 300;
+.news-img {
+  max-height: 20vh;
+  object-fit: cover;
+  width: 100%;
+}
+
+.news {
+  &-source {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  &-truncate {
+    display: block;
+    display: -webkit-box;
+    margin: 0 auto;
+    line-height: 1.4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+
+    &-title {
+      @extend .news-truncate;
+      font-size: 18px;
+      height: 50px;
+      -webkit-line-clamp: 3;
+    }
+
+    &-description {
+      @extend .news-truncate;
+      font-size: 14px;
+      height: 100px;
+      margin-bottom: 20px;
+      -webkit-line-clamp: 5;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .news-truncate-description {
+    height: unset;
+  }
 }

@@ -1,23 +1,33 @@
 <div class="container main">
   <div class="row">
-    <div class="col-12">
+    <div class="col">
       <h2 class="main-title">{{ title }}</h2>
       <hr>
     </div>
   </div>
   <div class="row">
     <div class="col search-wrapper mb-2">
-      <input type="text" [formControl]="searchCtrl" placeholder="Search term..." class="search-input" (keydown.enter)="getArticles()">
+      <input type="text" [formControl]="searchCtrl" placeholder="Search term..." class="search-input"
+        (keydown.enter)="getArticles()">
     </div>
   </div>
   <div class="row">
-      <div class="col search-wrapper">
-        <button mat-raised-button type="button" class="btn btn-info w-50" (click)="getArticles()">Search news</button>
-      </div>
+    <div class="col search-wrapper">
+      <button mat-raised-button type="button" class="btn btn-info search-button" (click)="getArticles()">Search news</button>
+    </div>
   </div>
-  <div class="row" *ngIf="articles.length">
+  <div class="row mt-4 w-100" *ngIf="articles.length">
     <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let article of articles">
       <app-news-block [article]="article"></app-news-block>
+    </div>
+  </div>
+  <div class="row" *ngIf="!articles.length && !init">
+    <div class="col no-data-wrapper">
+      <mat-icon>biotech</mat-icon>
+      <hr class="w-50">
+      <span>
+        No news found related to provided term
+      </span>
     </div>
   </div>
 </div>

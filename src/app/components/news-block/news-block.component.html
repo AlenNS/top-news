@@ -1,13 +1,15 @@
-<h5 class="text-uppercase">
+<h5 class="text-uppercase news-truncate-title"
+    [matTooltip]="article?.title">
   {{ article?.title }}
 </h5>
+<hr>
+<img [src]="article?.urlToImage" class="news-img" />
+<hr>
 <p class="news-source">Source: {{ article?.source?.name }}</p>
 <hr>
-<img [src]="article?.urlToImage" class="w-100" />
-<hr>
-<p>{{ article?.description }}</p>
+<p class="news-truncate-description">{{ article?.description }}</p>
 <a [routerLink]="['/news', formatLink(article?.title)]"
    target="_blank"
-   class="btn link-read-more w-100">
+   class="btn link-read-more mb-3 w-100">
   {{ readMore }}
 </a>
