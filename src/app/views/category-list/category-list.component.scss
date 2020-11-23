@@ -1,0 +1,45 @@
+@import './../../../assets/variables';
+
+:host ::ng-deep {
+    .news {
+        &-img {
+            height: 50vh !important;
+            position: relative;
+            left: 10px;
+            width: 97% !important;
+        }
+
+        &-source {
+            left: 10px;
+        }
+        
+        &-truncate {
+            &-description {
+                height: 20px !important;
+            }
+            &-title {
+                height: 20px !important;
+            }
+        }
+    }
+}
+
+.slide-ctrl {
+    color: $grey-dark;
+    position: absolute;
+    top: 50%;
+
+    &-left {
+        left: -15px;
+    }
+
+    &-right {
+        right: -23px;
+    }
+}
+
+@media screen and (max-width: $xs) {
+    .main-title {
+        font-size: 1.2rem !important;
+    }
+}

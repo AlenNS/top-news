@@ -58,10 +58,6 @@ export class SearchListComponent implements OnInit {
   }
 
   getArticles(): void {
-    // if (!this.searchCtrl.value && this.init) {
-    //   return;
-    // }
-
     this.tns.getNewsByTerm(this.selectedCountry.key, this.searchCtrl.value)
       .subscribe((response: Response) => {
         this.init = false;

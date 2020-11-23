@@ -8,21 +8,36 @@
   <div class="row">
     <div class="col">
       <mat-accordion>
-        <mat-expansion-panel *ngFor="let category of categories"
-            (opened)="getArticles(category.key)"
-            (closed)="panelOpenState = false"
-            class="mb-3">
+        <mat-expansion-panel *ngFor="let category of categories; let j = index" (opened)="getArticles(category.key)"
+          (closed)="panelOpenState = false" class="mb-3">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <strong>Category: </strong> <a [routerLink]="['/category', category.key]" class="ml-1"> {{ category?.value }} </a>
+              <strong>Category: </strong> <a [routerLink]="['/category', category.key]" class="ml-1">
+                {{ category?.value }} </a>
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="row">
-            <div class="col-sm-12 col-md-6"
-                *ngFor="let article of selectedCategoryArticles">
-                <app-news-block [article]="article"></app-news-block>
+            <div class="col">
+              <div id="{{ 'newsCarousel_' + j}}" class="carousel slide" data-ride="carousel">
+
+                <!-- Carousel slideshow -->
+                <div class="carousel-inner">
+                  <div class="carousel-item" [class.active]="i === 0"
+                    *ngFor="let article of selectedCategoryArticles; let i = index">
+                    <app-news-block [article]="article"></app-news-block>
+                  </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="slide-ctrl slide-ctrl-left" href="{{ '#newsCarousel_' + j }}" data-slide="prev">
+                  <mat-icon>arrow_back_ios</mat-icon>
+                </a>
+                <a class="slide-ctrl slide-ctrl-right" href="{{ '#newsCarousel_' + j }}" data-slide="next">
+                  <mat-icon>arrow_forward_ios</mat-icon>
+                </a>
+              </div>
             </div>
-        </div>
+          </div>
         </mat-expansion-panel>
       </mat-accordion>
       <hr>

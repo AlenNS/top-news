@@ -33,14 +33,6 @@ export class CategoryListComponent implements OnInit {
 
   ngOnInit(): void {
     this.setCountryValue();
-    this.getAllCategories();
-  }
-
-  getAllCategories(): void {
-    for (const category of this.categories) {
-      const key = category.key;
-      this.getArticles(key);
-    }
   }
 
   getArticles(category: string): any {
