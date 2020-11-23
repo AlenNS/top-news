@@ -8,12 +8,13 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NgMaterialDependenciesModule } from './ng-material-dependencies.module';
 
 // View components
-import { TopNewsComponent } from './../views/top-news/top-news.component';
-import { SearchListComponent } from './../views/search-list/search-list.component';
 import { CategoryListComponent } from './../views/category-list/category-list.component';
+import { SearchListComponent } from './../views/search-list/search-list.component';
+import { TopNewsComponent } from './../views/top-news/top-news.component';
 
 // Shared components
 import { FooterComponent } from './../components/footer/footer.component';
+import { LoadingSpinnerComponent } from './../components/loading-spinner/loading-spinner.component';
 import { NavbarComponent } from './../components/navbar/navbar.component';
 import { NewsBlockComponent } from './../components/news-block/news-block.component';
 import { NewsBlockModalComponent } from './../components/news-block/news-block-modal/news-block-modal.component';
@@ -24,12 +25,13 @@ import { TopNewsService } from './services/top-news.service';
 @NgModule({
   declarations: [
     CategoryListComponent,
-    SearchListComponent,
-    TopNewsComponent,
     FooterComponent,
+    LoadingSpinnerComponent,
     NavbarComponent,
     NewsBlockComponent,
-    NewsBlockModalComponent
+    NewsBlockModalComponent,
+    SearchListComponent,
+    TopNewsComponent
   ],
   imports: [
     CommonModule,
@@ -44,6 +46,7 @@ import { TopNewsService } from './services/top-news.service';
     NavbarComponent,
     NewsBlockComponent,
     NewsBlockModalComponent,
+    LoadingSpinnerComponent,
     ReactiveFormsModule,
     FormsModule
   ],

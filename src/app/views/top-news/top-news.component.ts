@@ -23,6 +23,7 @@ export class TopNewsComponent implements OnInit {
   country = 'gb';
   selectedCategory: KeyValue;
   selectedCountry: KeyValue;
+  showContent = false;
   title: string;
 
   constructor(
@@ -31,7 +32,10 @@ export class TopNewsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getParams();
+    // show the spinner before articles are loaded
+    setTimeout(() => {
+      this.getParams();
+    }, 750);
   }
 
   getParams(): void {
@@ -49,6 +53,7 @@ export class TopNewsComponent implements OnInit {
     this.tns.getNewsByCountry(this.selectedCountry.key)
       .subscribe((response: Response) => {
         this.articles = response.status === 'ok' ? response.articles : [];
+        this.showContent = true;
       }, (error) => {
         throw error;
       });
@@ -60,6 +65,7 @@ export class TopNewsComponent implements OnInit {
     this.tns.getNewsByCategory(this.selectedCountry.key, category)
       .subscribe((response: Response) => {
         this.articles = response.status === 'ok' ? response.articles : [];
+        this.showContent = true;
       }, (error) => {
         throw error;
       });

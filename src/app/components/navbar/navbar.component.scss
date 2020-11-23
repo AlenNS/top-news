@@ -1,26 +1,29 @@
+@import './../../../assets/variables';
+
 .main-navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: #E67E25;
-  color: #ffffff;
+  background-color: $red-dark;
+  color: $white;
   font-weight: 600;
+  z-index: 10;
 
   .links {
     margin: 0 16px;
 
     a {
-      color: #ffffff;
+      color: $white;
       font-weight: 300;
       margin: 0 12px;
       text-decoration: none;
 
       &:hover {
-        color:#34495E;
+        color: $blue;
       }
     }
   }

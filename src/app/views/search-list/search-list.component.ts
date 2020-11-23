@@ -1,16 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  FormControl
+} from '@angular/forms';
 
 // Constants
-import { COUNTRIES } from './../../shared/data-types/constants';
+import {
+  COUNTRIES
+} from './../../shared/data-types/constants';
 
 // Data types
-import { Article } from './../../shared/data-types/article';
-import { KeyValue } from './../../shared/data-types/key-value';
-import { Response } from './../../shared/data-types/response';
+import {
+  Article
+} from './../../shared/data-types/article';
+import {
+  KeyValue
+} from './../../shared/data-types/key-value';
+import {
+  Response
+} from './../../shared/data-types/response';
 
 // Services
-import { TopNewsService } from './../../shared/services/top-news.service';
+import {
+  TopNewsService
+} from './../../shared/services/top-news.service';
 
 @Component({
   selector: 'app-search-list',
@@ -20,6 +35,7 @@ import { TopNewsService } from './../../shared/services/top-news.service';
 export class SearchListComponent implements OnInit {
   articles: Article[] = [];
   country = 'gb';
+  noData = false;
   selectedCountry: KeyValue;
   title: string;
 
@@ -30,7 +46,7 @@ export class SearchListComponent implements OnInit {
 
   constructor(
     private tns: TopNewsService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.setCountryValue();
@@ -47,12 +63,17 @@ export class SearchListComponent implements OnInit {
     // }
 
     this.tns.getNewsByTerm(this.selectedCountry.key, this.searchCtrl.value)
-        .subscribe((response: Response) => {
-          this.init = false;
-          this.articles = response.status === 'ok' ? response.articles : [];
-    }, (error) => {
-      throw error;
-    });
+      .subscribe((response: Response) => {
+        this.init = false;
+        this.articles = response.status === 'ok' ? response.articles : [];
+
+        // Show no data available if articles are empty in the response
+        if (!this.articles.length) {
+          this.noData = true;
+        }
+      }, (error) => {
+        throw error;
+      });
   }
 
 }

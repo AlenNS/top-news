@@ -1,3 +1,5 @@
+@import './../../../assets/variables';
+
 .search {
   &-wrapper {
     display: flex;
@@ -6,16 +8,20 @@
   }
 
   &-input {
-    background: #eeeeee;
+    background: $grey-light;
     border-radius: 2px;
-    border: 1px solid #eeeeee;
-    color: #34495E;
+    border: 1px solid $grey;
+    color: $grey-dark;
     font-size: 24px;
     font-weight: 300;
     height: 48px;
     margin: 0 auto;
     padding: 10px;
     width: 67%;
+
+    &-error {
+      border: 2px solid $red;
+    }
   }
 
   &-button {
@@ -38,7 +44,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $sm) {
   .search {
     &-input,
     &-button {

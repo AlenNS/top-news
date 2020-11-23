@@ -1,0 +1,19 @@
+$xs: 575px; // Extra small devices (portrait phones, less than 576px)
+$sm: 767px; // Small devices (landscape phones, less than 768px)
+$md: 991px; // Medium devices (tablets, less than 992px)
+$lg: 1199px; // Large devices (desktops, less than 1200px)
+
+//--- Colors ---//
+$black: #000000;
+$blue: #1976d2;
+$green: #17a2b8;
+$grey-dark: #363636;
+$grey-light: #efefef;
+$grey: #cdcdcd;
+$orange: #dd9000;
+$red-dark: #850000;
+$red: #ed143d;
+$white: #ffffff;
+
+//--- Transitions ---//
+$transition: all .75s ease-in-out 1s;

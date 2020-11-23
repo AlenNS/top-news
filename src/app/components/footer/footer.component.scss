@@ -1,7 +1,9 @@
+@import './../../../assets/variables';
+
 .footer {
-  background-color: #34495E;
+  background-color: $black;
   bottom: 0;
-  color: #ffffff;
+  color: $white;
   margin-top: 60px;
   padding: 30px;
   position: fixed;
