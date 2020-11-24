@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 // Constants
 import { CATEGORIES, COUNTRIES } from './../../shared/data-types/constants';
@@ -18,10 +18,11 @@ import { TopNewsService } from './../../shared/services/top-news.service';
 })
 export class CategoryListComponent implements OnInit {
   // List of categories and related articles
-  categories: KeyValue[] = CATEGORIES;
+  categories: any;
   selectedCategoryArticles: Article[] = [];
 
   country = 'gb';
+  isExpanded = true;
   pageSize = 5;
   panelOpenState = false;
   selectedCountry: KeyValue;
@@ -32,15 +33,19 @@ export class CategoryListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.setCountryValue();
+    this.setCategories();
+    this.setCountryValue(this.country);
+  }
+
+  changeCountry(country: string): void {
+    this.setCategories();
+    this.setCountryValue(country);
   }
 
   getArticles(category: string): any {
-    this.panelOpenState = true;
     this.selectedCategoryArticles = [];
-    this.title = `Top ${this.pageSize} news by category from ${this.selectedCountry.value}`;
 
-    this.tns.getNewsByCategory(this.country, category, this.pageSize)
+    this.tns.getNewsByCategory(this.selectedCountry.key, category, this.pageSize)
       .subscribe((response: Response) => {
         this.selectedCategoryArticles = response.status === 'ok' ? response.articles : [];
       }, (error) => {
@@ -48,8 +53,14 @@ export class CategoryListComponent implements OnInit {
       });
   }
 
-  setCountryValue(): void {
-    const country = this.country;
+  setCategories(): void {
+    this.categories = CATEGORIES.map(category => {
+      return { key: category.key, value: category.value, expanded: false };
+    });
+  }
+
+  setCountryValue(country: string): void {
     this.selectedCountry = COUNTRIES.find(el => el.key === country);
+    this.title = `Top ${this.pageSize} news by category from ${this.selectedCountry.value}`;
   }
 }

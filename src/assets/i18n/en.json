@@ -12,5 +12,6 @@
     "button_back": "Back to the list",
 
     "search_button": "Search news",
+    "search_placeholder": "Search term...",
     "search_nodata": "No news found related to provided term"
 }

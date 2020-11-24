@@ -32,25 +32,32 @@ export class TopNewsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // show the spinner before articles are loaded
-    setTimeout(() => {
-      this.getParams();
-    }, 750);
+    this.getParams(this.country);
   }
 
-  getParams(): void {
+  changeCountry(country: string): void {
+    this.showContent = false;
+
+    this.setCountryValue(country);
+    this.getParams(country);
+  }
+
+  getParams(country: string): void {
     this.category = this.route.snapshot.params.category;
-    // this.country = this.route.snapshot.params.country;
+    this.country = country;
     this.setCategoryValue(this.category);
     this.setCountryValue(this.country);
 
-    this.category ? this.getArticlesByCategory(this.category) : this.getArticles();
+    // show the spinner before articles are loaded
+    setTimeout(() => {
+      this.category ? this.getArticlesByCategory(this.category) : this.getArticles(this.country);
+    }, 750);
   }
 
-  getArticles(): void {
+  getArticles(country: string): void {
     this.title = `Top news from ${this.selectedCountry.value}`;
 
-    this.tns.getNewsByCountry(this.selectedCountry.key)
+    this.tns.getNewsByCountry(country)
       .subscribe((response: Response) => {
         this.articles = response.status === 'ok' ? response.articles : [];
         this.showContent = true;

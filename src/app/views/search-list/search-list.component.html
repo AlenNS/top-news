@@ -7,13 +7,14 @@
   </div>
   <div class="row">
     <div class="col search-wrapper mb-2">
-      <input type="text" [formControl]="searchCtrl" placeholder="Search term..." class="search-input" [class.search-input-error]="noData"
-        (keydown.enter)="getArticles()">
+      <input type="text" [formControl]="searchCtrl" placeholder="{{ 'search_placeholder' | translate }}" class="search-input"
+        [class.search-input-error]="noData" (keydown.enter)="getArticles()">
     </div>
   </div>
   <div class="row">
     <div class="col search-wrapper">
-      <button mat-raised-button type="button" class="btn btn-info search-button" (click)="getArticles()">{{ 'search_button' | translate }}</button>
+      <button mat-raised-button type="button" class="btn btn-info search-button"
+        (click)="getArticles()">{{ 'search_button' | translate }}</button>
     </div>
   </div>
   <div class="row mt-4 w-100" *ngIf="articles.length">
@@ -30,4 +31,8 @@
       </span>
     </div>
   </div>
+</div>
+<div class="country-links">
+  <span class="cursor-pointer" (click)="changeCountry('gb')">GB</span>
+  <span class="cursor-pointer" (click)="changeCountry('us')">US</span>
 </div>

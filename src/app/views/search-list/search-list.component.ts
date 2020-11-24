@@ -49,11 +49,16 @@ export class SearchListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.setCountryValue();
+    this.setCountryValue(this.country);
   }
 
-  setCountryValue(): void {
-    this.selectedCountry = COUNTRIES.find(el => el.key === this.country);
+  changeCountry(country: string): void {
+    this.setCountryValue(country);
+    this.getArticles();
+  }
+
+  setCountryValue(country: string): void {
+    this.selectedCountry = COUNTRIES.find(el => el.key === country);
     this.title = `Search top news from ${this.selectedCountry.value} by term`;
   }
 

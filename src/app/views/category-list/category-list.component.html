@@ -7,12 +7,13 @@
   </div>
   <div class="row">
     <div class="col">
-      <mat-accordion>
-        <mat-expansion-panel *ngFor="let category of categories; let j = index" (opened)="getArticles(category.key)"
+      <mat-accordion #categoryAccordion="matAccordion">
+        <mat-expansion-panel *ngFor="let category of categories; let j = index" [expanded]="category.expanded" (opened)="panelOpenState = true;getArticles(category.key)"
           (closed)="panelOpenState = false" class="mb-3">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <strong>{{ 'label_category' | translate }}: </strong> <a [routerLink]="['/category', category.key]" class="ml-1">
+              <strong>{{ 'label_category' | translate }}: </strong> <a [routerLink]="['/category', category.key]"
+                class="ml-1">
                 {{ category?.value }} </a>
             </mat-panel-title>
           </mat-expansion-panel-header>
@@ -43,4 +44,8 @@
       <hr>
     </div>
   </div>
+</div>
+<div class="country-links">
+  <span class="cursor-pointer" (click)="changeCountry('gb')">GB</span>
+  <span class="cursor-pointer" (click)="changeCountry('us')">US</span>
 </div>

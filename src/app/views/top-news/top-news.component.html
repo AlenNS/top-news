@@ -1,15 +1,18 @@
 <div class="container main">
-    <div class="row">
-        <div class="col">
-            <h2 class="main-title">{{ title }}</h2>
-            <hr>
-        </div>
+  <div class="row" *ngIf="showContent">
+    <div class="col">
+      <h2 class="main-title">{{ title }}</h2>
+      <hr>
     </div>
-    <div class="row">
-        <app-loading-spinner *ngIf="!showContent"></app-loading-spinner>
-        <div class="col-sm-12 col-md-6 col-lg-4 px-3 pt-3 pb-2 mb-4 main-content"
-            *ngFor="let article of articles">
-            <app-news-block [article]="article" *ngIf="showContent"></app-news-block>
-        </div>
+  </div>
+  <div class="row">
+    <app-loading-spinner *ngIf="!showContent"></app-loading-spinner>
+    <div class="col-sm-12 col-md-6 col-lg-4 px-3 pt-3 pb-2 mb-4 main-content" *ngFor="let article of articles">
+      <app-news-block [article]="article" *ngIf="showContent"></app-news-block>
     </div>
+  </div>
+</div>
+<div class="country-links">
+  <span class="cursor-pointer" (click)="changeCountry('gb')">GB</span>
+  <span class="cursor-pointer" (click)="changeCountry('us')">US</span>
 </div>
