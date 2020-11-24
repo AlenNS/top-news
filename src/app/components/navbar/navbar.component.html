@@ -1,6 +1,7 @@
 <div class="container">
   <div class="navbar navbar-collapse main-navbar">
-    <div class="links">
+    <mat-icon class="mobile cursor-pointer" (click)="showMenu = !showMenu">view_headline</mat-icon>
+    <div class="links" [ngClass]="{ 'hidden': !showMenu }">
       <a class="navbar-link" [routerLink]="['/']">{{ 'menu_topnews' | translate }}</a>
       <a class="navbar-link" [routerLink]="['/categories']">{{ 'menu_categories' | translate }}</a>
       <a class="navbar-link" [routerLink]="['/search']">{{ 'menu_search' | translate }}</a>

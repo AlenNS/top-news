@@ -46,9 +46,14 @@
 
 @media screen and (max-width: $sm) {
   .search {
+
     &-input,
     &-button {
       width: 100%;
     }
+  }
+
+  .main-title {
+    font-size: 1.2rem !important;
   }
 }
