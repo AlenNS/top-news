@@ -34,7 +34,7 @@ export class NewsBlockComponent implements OnInit {
   openDialog(): void {
     const newsDialog = this.dialog.open(NewsBlockModalComponent, {
       height: '75vh',
-      width: '75vh'
+      width: '50vw'
     });
 
     newsDialog.componentInstance.title = this.article.title;

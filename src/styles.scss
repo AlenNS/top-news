@@ -54,3 +54,10 @@ h6 {
     }
   }
 }
+
+@media screen and (max-width: $sm) {
+  .cdk-overlay-pane {
+    max-width: 95vw !important;
+    width: 95vw !important;
+  }
+}
