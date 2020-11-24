@@ -1,11 +1,10 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import { SharedModule } from './shared/shared.module';
 
@@ -25,20 +24,14 @@ import { AppRoutingModule } from './app.routing.module';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
-    SharedModule,
-    TranslateModule.forRoot()
+    SharedModule
   ],
   exports: [
     RouterModule
   ],
-  providers: [
-    TranslateService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(translate: TranslateService) {
-    translate.setDefaultLang('en');
-    translate.use('en');
-  }
+  constructor() { }
 }

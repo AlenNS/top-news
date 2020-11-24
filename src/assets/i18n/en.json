@@ -1,0 +1,16 @@
+{
+    "no_data": "No content retrieved from server",
+    
+    "menu_topnews": "Top News",
+    "menu_categories": "Categories",
+    "menu_search": "Search",
+
+    "label_category": "Category",
+    "label_source": "Source",
+    "label_readmore": "More details",
+
+    "button_back": "Back to the list",
+
+    "search_button": "Search news",
+    "search_nodata": "No news found related to provided term"
+}

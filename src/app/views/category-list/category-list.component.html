@@ -12,7 +12,7 @@
           (closed)="panelOpenState = false" class="mb-3">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <strong>Category: </strong> <a [routerLink]="['/category', category.key]" class="ml-1">
+              <strong>{{ 'label_category' | translate }}: </strong> <a [routerLink]="['/category', category.key]" class="ml-1">
                 {{ category?.value }} </a>
             </mat-panel-title>
           </mat-expansion-panel-header>

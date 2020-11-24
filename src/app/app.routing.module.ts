@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { CategoryListComponent } from './views/category-list/category-list.component';
 import { NewsBlockComponent } from './components/news-block/news-block.component';
@@ -29,7 +30,8 @@ const routes: Routes = [{
     RouterModule.forRoot(routes, {
       enableTracing: false,
       scrollPositionRestoration: 'top'
-    })
+    }),
+    TranslateModule
   ],
   exports: [RouterModule]
 })

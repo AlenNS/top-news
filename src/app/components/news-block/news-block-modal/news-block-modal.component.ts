@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-news-block-modal',
@@ -11,11 +12,14 @@ export class NewsBlockModalComponent implements OnInit {
   title: string;
   urlToImage: string;
 
-  noDataPlaceholder = 'No content retrieved from server';
+  noDataPlaceholder: string;
 
-  constructor() { }
+  constructor(
+    private translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
+    this.noDataPlaceholder = this.translate.instant('no_data');
   }
 
 }

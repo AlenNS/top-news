@@ -1,8 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // Angular material dependencies
 import { NgMaterialDependenciesModule } from './ng-material-dependencies.module';
@@ -25,6 +27,10 @@ import { NoDataPipe } from './pipes/no-data.pipe';
 // Services
 import { TopNewsService } from './services/top-news.service';
 
+export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     // View components
@@ -43,10 +49,17 @@ import { TopNewsService } from './services/top-news.service';
   imports: [
     CommonModule,
     FormsModule,
+    HttpClientModule,
     NgMaterialDependenciesModule,
     ReactiveFormsModule,
     RouterModule,
-    TranslateModule
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   exports: [
     ReactiveFormsModule,
@@ -59,12 +72,15 @@ import { TopNewsService } from './services/top-news.service';
     NavbarComponent,
     NewsBlockComponent,
     NewsBlockModalComponent,
+    TranslateModule
   ],
   providers: [
     // Pipes
     NoDataPipe,
     // Services
-    TopNewsService
+    TopNewsService,
+    TranslateService,
+    { provide: LOCALE_ID, useValue: 'en-EN' }
   ]
 })
 

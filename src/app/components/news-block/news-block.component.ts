@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
 
 // Data types
 import { Article } from './../../shared/data-types/article';
@@ -14,12 +15,15 @@ import { NewsBlockModalComponent } from './news-block-modal/news-block-modal.com
 export class NewsBlockComponent implements OnInit {
   @Input() article: Article;
 
-  noDataPlaceholder = 'No content retrieved from server';
-  readMore = 'More details';
+  noDataPlaceholder: string;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    public dialog: MatDialog,
+    private translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
+    this.noDataPlaceholder = this.translate.instant('no_data');
   }
 
   formatLink(title: string): string {

@@ -7,7 +7,7 @@
   <div>
     <p class="news-source">
       <span class="news-source-ribbon">
-        Source: {{ source }}
+        {{ 'label_source' | translate }}: {{ source }}
       </span>
     </p>
   </div>
@@ -19,6 +19,6 @@
   </div>
   <div>
     <button type="button" class="btn btn-secondary button-back" [mat-dialog-close]="true">
-      < Back to the list</button>
+      < {{ 'button_back' | translate }}</button>
   </div>
 </div>
