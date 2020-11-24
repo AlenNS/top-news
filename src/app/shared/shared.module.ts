@@ -1,10 +1,9 @@
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule } from '@ngx-translate/core';
 
 // Angular material dependencies
 import { NgMaterialDependenciesModule } from './ng-material-dependencies.module';
@@ -27,10 +26,6 @@ import { NoDataPipe } from './pipes/no-data.pipe';
 // Services
 import { TopNewsService } from './services/top-news.service';
 
-export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
-
 @NgModule({
   declarations: [
     // View components
@@ -52,14 +47,8 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     HttpClientModule,
     NgMaterialDependenciesModule,
     ReactiveFormsModule,
-    RouterModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
-    })
+    RouterModule.forRoot([]),
+    TranslateModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -75,18 +64,15 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     TranslateModule
   ],
   providers: [
+    // Modules
+    HttpClientModule,
     // Pipes
     NoDataPipe,
     // Services
-    TopNewsService,
-    TranslateService,
-    { provide: LOCALE_ID, useValue: 'en-EN' }
+    TopNewsService
   ]
 })
 
 export class SharedModule {
-  constructor(translate: TranslateService) {
-    translate.setDefaultLang('en');
-    translate.use('en');
-  }
+  constructor() { }
 }

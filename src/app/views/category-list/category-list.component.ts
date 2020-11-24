@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 // Constants
 import { CATEGORIES, COUNTRIES } from './../../shared/data-types/constants';

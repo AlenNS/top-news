@@ -6,6 +6,8 @@ import { catchError } from 'rxjs/operators';
 
 import { Response } from './../data-types/response';
 
+// Add proxy URL
+const PROXY = 'https://cors-anywhere.herokuapp.com/';
 // API endpoint URL and api key values
 const BASE_URL = 'https://newsapi.org/v2/top-headlines?';
 // const API_KEY = '85c2278d358f439e899cd26d34b7b871';
@@ -23,7 +25,7 @@ export class TopNewsService {
     ) { }
 
     getNewsByCountry(country: string): Observable<Response> {
-        const FULL_URL = BASE_URL + 'apiKey=' + API_KEY + '&country=' + country;
+        const FULL_URL = PROXY + BASE_URL + 'apiKey=' + API_KEY + '&country=' + country;
 
         return this.http
           .get<Response>(FULL_URL, { headers })
@@ -31,7 +33,7 @@ export class TopNewsService {
     }
 
     getNewsByCategory(country: string, category: string, pageSize?: number): Observable<Response> {
-      let FULL_URL = BASE_URL + 'apiKey=' + API_KEY + '&country=' + country + '&category=' + category;
+      let FULL_URL = PROXY + BASE_URL + 'apiKey=' + API_KEY + '&country=' + country + '&category=' + category;
 
       if (pageSize) {
         FULL_URL += '&pageSize=' + pageSize;
@@ -43,7 +45,7 @@ export class TopNewsService {
     }
 
     getNewsByTerm(country: string, searchTerm: string): Observable<Response> {
-      const FULL_URL = BASE_URL + 'apiKey=' + API_KEY + '&country=' + country + '&q=' + searchTerm.toString();
+      const FULL_URL = PROXY + BASE_URL + 'apiKey=' + API_KEY + '&country=' + country + '&q=' + searchTerm.toString();
 
       return this.http
         .get<Response>(FULL_URL, { headers })

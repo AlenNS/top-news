@@ -7,7 +7,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <mat-accordion #categoryAccordion="matAccordion">
+      <mat-accordion>
         <mat-expansion-panel *ngFor="let category of categories; let j = index" [expanded]="category.expanded" (opened)="panelOpenState = true;getArticles(category.key)"
           (closed)="panelOpenState = false" class="mb-3">
           <mat-expansion-panel-header>

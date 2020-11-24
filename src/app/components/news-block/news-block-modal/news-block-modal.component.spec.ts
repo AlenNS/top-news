@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TranslateModule } from '@ngx-translate/core';
+import { NoDataPipe } from './../../../shared/pipes/no-data.pipe';
 
 import { NewsBlockModalComponent } from './news-block-modal.component';
 
@@ -8,7 +11,8 @@ describe('NewsBlockModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewsBlockModalComponent ]
+      declarations: [ NewsBlockModalComponent, NoDataPipe ],
+      imports: [MatDialogModule, TranslateModule.forRoot()],
     })
     .compileComponents();
   });
