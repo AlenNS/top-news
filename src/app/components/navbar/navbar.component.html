@@ -2,14 +2,14 @@
   <div class="navbar navbar-collapse main-navbar">
     <mat-icon class="mobile cursor-pointer" (click)="showMenu = !showMenu">view_headline</mat-icon>
     <div class="links" [ngClass]="{ 'hidden': !showMenu }">
-      <span class="menu-item" [class.active]="isHome">
-        <a class="navbar-link" [routerLink]="['/']">{{ 'menu_topnews' | translate }}</a>
+      <span class="menu-item" [class.active]="isHome" [routerLink]="['/']">
+        <a class="navbar-link">{{ 'menu_topnews' | translate }}</a>
       </span>
-      <span class="menu-item" [class.active]="isCategories">
-        <a class="navbar-link" [routerLink]="['/categories']">{{ 'menu_categories' | translate }}</a>
+      <span class="menu-item" [class.active]="isCategories" [routerLink]="['/categories']">
+        <a class="navbar-link">{{ 'menu_categories' | translate }}</a>
       </span>
-      <span class="menu-item" [class.active]="isSearch">
-        <a class="navbar-link" [routerLink]="['/search']">{{ 'menu_search' | translate }}</a>
+      <span class="menu-item" [class.active]="isSearch" [routerLink]="['/search']">
+        <a class="navbar-link">{{ 'menu_search' | translate }}</a>
       </span>
     </div>
   </div>
