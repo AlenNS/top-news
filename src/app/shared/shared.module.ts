@@ -8,11 +8,6 @@ import { TranslateModule } from '@ngx-translate/core';
 // Angular material dependencies
 import { NgMaterialDependenciesModule } from './ng-material-dependencies.module';
 
-// View components
-import { CategoryListComponent } from './../views/category-list/category-list.component';
-import { SearchListComponent } from './../views/search-list/search-list.component';
-import { TopNewsComponent } from './../views/top-news/top-news.component';
-
 // Shared components
 import { FooterComponent } from './../components/footer/footer.component';
 import { LoadingSpinnerComponent } from './../components/loading-spinner/loading-spinner.component';
@@ -29,9 +24,6 @@ import { TopNewsService } from './services/top-news.service';
 @NgModule({
   declarations: [
     // View components
-    CategoryListComponent,
-    SearchListComponent,
-    TopNewsComponent,
     // Shared components
     FooterComponent,
     LoadingSpinnerComponent,
@@ -41,16 +33,20 @@ import { TopNewsService } from './services/top-news.service';
     // Pipes
     NoDataPipe
   ],
+  entryComponents: [
+    NewsBlockModalComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
     NgMaterialDependenciesModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([]),
+    RouterModule,
     TranslateModule
   ],
   exports: [
+    NgMaterialDependenciesModule,
     ReactiveFormsModule,
     FormsModule,
     // Pipes

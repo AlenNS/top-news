@@ -31,7 +31,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     HttpClientModule,
     NgMaterialDependenciesModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([]),
+    RouterModule.forChild([]),
     SharedModule,
     TranslateModule.forRoot({
       loader: {

@@ -2,35 +2,24 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { CategoryListComponent } from './views/category-list/category-list.component';
-import { NewsBlockComponent } from './components/news-block/news-block.component';
-import { SearchListComponent } from './views/search-list/search-list.component';
-import { TopNewsComponent } from './views/top-news/top-news.component';
-
 const routes: Routes = [{
   path: '',
   pathMatch: 'full',
-  component: TopNewsComponent
-}, {
-  path: 'news/:title',
-  component: NewsBlockComponent
+  loadChildren: () => import('./views/top-news/top-news.module').then(path => path.TopNewsModule)
 }, {
   path: 'categories',
-  component: CategoryListComponent
+  loadChildren: () => import('./views/category-list/category-list.module').then(path => path.CategoryListModule)
 }, {
   path: 'category/:category',
-  component: TopNewsComponent
+  loadChildren: () => import('./views/top-news/top-news.module').then(path => path.TopNewsModule)
 }, {
   path: 'search',
-  component: SearchListComponent
+  loadChildren: () => import('./views/search-list/search-list.module').then(path => path.SearchListModule)
 }];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {
-      enableTracing: false,
-      scrollPositionRestoration: 'top'
-    }),
+    RouterModule.forRoot(routes),
     TranslateModule
   ],
   exports: [RouterModule]
